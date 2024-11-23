@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-function Navbar() {
+function Navbar({ darkMode, setDarkMode }) {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false)
-    const [darkMode, setDarkMode] = useState(false)
     const dropdownRef = useRef(null)
 
     const dropdown = {
@@ -18,7 +17,6 @@ function Navbar() {
     
     function toggleDarkMode() {
         setDarkMode(!darkMode)
-        document.documentElement.classList.toggle('dark')
     }
 
     useEffect(() => {
