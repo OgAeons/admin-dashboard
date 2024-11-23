@@ -4,6 +4,13 @@ function Navbar() {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false)
     const dropdownRef = useRef(null)
 
+    const dropdown = {
+        Projects: ['Create New Project', 'View All Projects', 'Archived Projects'],
+        Groups: ['Create New Group', 'Manage Groups', 'View All Groups'],
+        Products: ['Add New Product', 'Manage Products', 'View All Products'],
+        More: ['Help Center', 'Feedback', 'About Us']
+    }
+
     function toggleUserDropdown() {
         setIsUserDropdownOpen(!isUserDropdownOpen)
     }
@@ -27,22 +34,21 @@ function Navbar() {
                 <div className="font-semibold text-lg w-1/6">Admin Dashboard</div>
 
                 <div className='text-lg w-2/6 flex justify-around'>
-                    <div className="flex items-center cursor-pointer">
-                        <span>Projects</span>
-                        <img src="/down-arrow.png" alt="Arrow" className="w-4 h-4 ml-1" />
-                    </div>
-                    <div className="flex items-center cursor-pointer">
-                        <span>Groups</span>
-                        <img src="/down-arrow.png" alt="Arrow" className="w-4 h-4 ml-1" />
-                    </div>
-                    <div className="flex items-center cursor-pointer">
-                        <span>Products</span>
-                        <img src="/down-arrow.png" alt="Arrow" className="w-4 h-4 ml-1" />
-                    </div>
-                    <div className="flex items-center cursor-pointer">
-                        <span>More</span>
-                        <img src="/down-arrow.png" alt="Arrow" className="w-4 h-4 ml-1" />
-                    </div>
+                    {Object.keys(dropdown).map((key) => (
+                        <div key={key} className="flex items-center cursor-pointer group"> 
+                            <span>{key}</span>
+                            <img src="/down-arrow.png" alt="Arrow" className="w-4 h-4 ml-1" />
+                            <div className='bg-white text-gray-700 w-48 hidden group-hover:block absolute top-20 rounded-lg shadow-lg border border-gray-300 z-5'>
+                                <ul className="py-2">
+                                    {dropdown[key].map((option) => (
+                                        <li key={option} className="px-4 py-2 hover:bg-gray-200 cursor-pointer">
+                                            {option}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
                 </div>
 
                 <div className='w-1/6'></div>
@@ -61,7 +67,7 @@ function Navbar() {
                     </div>
 
                     {isUserDropdownOpen && (
-                        <div ref={dropdownRef} className="bg-white text-gray-700 absolute top-24 right-8 w-48 rounded-lg shadow-lg border border-gray-300 z-1">
+                        <div ref={dropdownRef} className="bg-white text-gray-700 absolute top-24 right-8 w-48 rounded-lg shadow-lg border border-gray-300 z-5">
                             <ul className="py-2">
                                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Profile</li>
                                 <li className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Switch to Dark Mode</li>
