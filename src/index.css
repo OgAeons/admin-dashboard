@@ -6,3 +6,7 @@
 body {
     background-color: rgb(210, 219, 255);
 }
+
+.no-select {
+    user-select: none;
+}
