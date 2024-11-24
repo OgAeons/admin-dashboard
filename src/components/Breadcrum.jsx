@@ -7,10 +7,10 @@ function Breadcrumb() {
 
   return (
     <nav className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-      <ul className="flex items-center space-x-2">
+      <ul className="flex items-center space-x-2 m-4">
         <li>
           <Link to="/" className="hover:underline">
-            Home
+            Project Overview
           </Link>
         </li>
         {pathnames.map((value, index) => {

@@ -1,6 +1,6 @@
 import React  from 'react'
 
-function Dashboard({ darkMode, setDarkMode }) {
+function Dashboard({ darkMode }) {
   return (
     <div>
         <h1>h</h1>

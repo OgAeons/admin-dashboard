@@ -9,7 +9,7 @@ function Sidebar({darkMode}) {
     }
 
   return (
-    <div className={`no-select ${darkMode ? 'dark' : ''} ${sidebarCollapsed ? 'w-10 ' : 'w-64'} transition-all duration-300 bg-white dark:bg-gray-700 text-gray-800 dark:text-white h-screen flex flex-col p-2 overflow-hidden`}>
+    <div className={`no-select ${darkMode ? 'dark' : ''} ${sidebarCollapsed ? 'w-10 ' : 'w-64'} transition-all duration-300 bg-white dark:bg-gray-700 text-gray-800 dark:text-white h-screen flex flex-col mt-1 p-2 overflow-hidden`}>
         {sidebarCollapsed ? (
             <div>
                 <button className="mb-8 w-10 h-10" onClick={toggleSidebar}>
