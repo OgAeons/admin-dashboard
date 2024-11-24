@@ -14,7 +14,7 @@ export function makeServer() {
                             email: 'atharva1@mail.com',
                             projects: 1000,
                             accessExpires: '12 months',
-                            role: ['Administrator', 'Editor', 'Developer'],
+                            role: ['Administrator'],
                             expiration: '2024-06-20',
                         },
                         {
@@ -35,7 +35,24 @@ export function makeServer() {
                             role: 'Developer',
                             expiration: '2026-06-20',
                         },
-
+                        {
+                            id: 1,
+                            name: "John Doe",
+                            email: 'devteam@mail.com',
+                            role: ["Admin", "Manager"],
+                            projects: "Project A",
+                            accessExpires: "2024-12-31",
+                            expiration: "2024-12-31"
+                          },
+                          {
+                            id: 2,
+                            name: "Jane Smith",
+                            email: 'devteam@mail.com',
+                            role: ["Manager"],
+                            projects: "Project B",
+                            accessExpires: "2025-01-15",
+                            expiration: "2025-01-15"
+                          }
                     ],
                 }
             })
