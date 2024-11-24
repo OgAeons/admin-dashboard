@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from './routes/Dashboard'
 
 function App() {
@@ -13,9 +14,13 @@ function App() {
     }, [darkMode])
 
     return (
-        <div className={`${darkMode ? 'dark' : ''} bg-blue-100 dark:bg-gray-800 p-8`}>
-            <Dashboard darkMode={darkMode} setDarkMode={setDarkMode} />
-        </div>
+        <Router>
+            <div className={`${darkMode ? 'dark' : ''} bg-blue-100 dark:bg-gray-800 p-8`}>
+                <Routes>
+                    <Route path='/' element={<Dashboard darkMode={darkMode} setDarkMode={setDarkMode} />} />
+                </Routes>
+            </div>
+        </Router>
     )
 }
 

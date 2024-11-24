@@ -10,3 +10,7 @@
 .no-select {
     user-select: none;
 }
+
+.sidebar-text {
+    white-space: nowrap;
+}
