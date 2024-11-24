@@ -62,7 +62,7 @@ function Sidebar({darkMode}) {
                     </Link>
                     <Link to="/" className="text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center">
                         <img className='w-6 mr-2' src={darkMode ? '/members-white.png' : '/members.png'} alt="home-icon" />
-                        <span className='text-base sidebar-text'>Members</span>
+                        <span className='text-base sidebar-text'>Users</span>
                     </Link>
                     <Link to="/" className="text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center">
                         <img className='w-6 mr-2' src={darkMode ? '/settings-white.png' : '/settings.png'} alt="home-icon" />

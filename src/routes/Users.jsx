@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Breadcrumb from '../components/Breadcrum'
 
-function Members({ darkMode }) {
+function Users({ darkMode }) {
     const [users, setUsers] = useState([])
     const [selectedItems, setSelectedItems] = useState([])
     const [selectAll, setSelectAll] = useState(false)
@@ -47,7 +47,7 @@ function Members({ darkMode }) {
 
         <h1 className="text-gray-800 dark:text-gray-200 text-2xl font-bold mb-6 ml-8">Users ({filteredUsers.length})</h1>
 
-        <div className='bg-white dark:bg-gray-800 mx-6 px-8 py-4 rounded-3xl'>
+        <div className='bg-white dark:bg-gray-800 mx-6 px-8 py-8 rounded-3xl'>
             <div className='flex items-center space-x-4 mb-4'>
                 <input
                     type="text"
@@ -111,4 +111,4 @@ function Members({ darkMode }) {
   )
 }
 
-export default Members
+export default Users
