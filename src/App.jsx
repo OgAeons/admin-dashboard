@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Dashboard from './routes/Dashboard'
+import { makeServer } from './services/server'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Dashboard from './routes/Dashboard'
+import Members from './routes/Members'
+
+if (process.env.NODE_ENV === 'development') {
+    makeServer()
+}
 
 function App() {
     const [darkMode, setDarkMode] = useState(false)
@@ -31,7 +37,8 @@ function App() {
         <Router>
             <div className={`${darkMode ? 'dark' : ''} bg-blue-100 dark:bg-gray-800 p-8`}>
                 <Routes>
-                    <Route path='/dashboard' element={<LayoutWithNavbarSidebar><Dashboard darkMode={darkMode} setDarkMode={setDarkMode} /></LayoutWithNavbarSidebar>} />
+                    <Route path='/dashboard' element={<LayoutWithNavbarSidebar><Dashboard darkMode={darkMode} /></LayoutWithNavbarSidebar>} />
+                    <Route path='/members' element={<LayoutWithNavbarSidebar><Members darkMode={darkMode} /></LayoutWithNavbarSidebar>} />
                 </Routes>
             </div>
         </Router>
