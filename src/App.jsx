@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Dashboard from './routes/Dashboard'
 import Users from './routes/Users'
+import Roles from './routes/Roles'
 
 if (process.env.NODE_ENV === 'development') {
     makeServer()
@@ -37,8 +38,9 @@ function App() {
         <Router>
             <div className={`${darkMode ? 'dark' : ''} bg-blue-100 dark:bg-gray-800 p-8`}>
                 <Routes>
-                    <Route path='/dashboard' element={<LayoutWithNavbarSidebar><Dashboard darkMode={darkMode} /></LayoutWithNavbarSidebar>} />
-                    <Route path='/members' element={<LayoutWithNavbarSidebar><Users darkMode={darkMode} /></LayoutWithNavbarSidebar>} />
+                    <Route path='/' element={<LayoutWithNavbarSidebar><Dashboard /></LayoutWithNavbarSidebar>} />
+                    <Route path='/users' element={<LayoutWithNavbarSidebar><Users /></LayoutWithNavbarSidebar>} />
+                    <Route path='/roles' element={<LayoutWithNavbarSidebar><Roles /></LayoutWithNavbarSidebar>} />
                 </Routes>
             </div>
         </Router>
