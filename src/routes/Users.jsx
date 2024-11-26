@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Breadcrumb from '../components/Breadcrum'
 import Alert from '../components/Alert'
 
-function Users() {
+function Users({ setUsersLength }) {
     const [users, setUsers] = useState([])
     const [roles, setRoles] = useState([
         { id: 1, name: "Owner" },
@@ -26,6 +26,7 @@ function Users() {
         if (savedUsers) {
             setUsers(savedUsers)
         }
+        setUsersLength(users.length)
     }, [])
 
     useEffect(() => {
