@@ -20,7 +20,7 @@ function Sidebar({darkMode}) {
     }, [location])
 
   return (
-    <div className={`no-select ${darkMode ? 'dark' : ''} ${sidebarCollapsed ? 'w-10 ' : 'w-64'} transition-all duration-300 bg-white dark:bg-gray-700 text-gray-800 dark:text-white h-screen flex flex-col mt-1 p-2 overflow-hidden`}>
+    <div className={`no-select ${darkMode ? 'dark' : ''} ${sidebarCollapsed ? 'w-10 ' : 'w-64'} transition-all duration-300 bg-white dark:bg-gray-700 text-gray-800 dark:text-white h-screen flex flex-col mt-1 p-2 overflow-hidden rounded-bl-3xl`}>
         {sidebarCollapsed ? (
             <div>
                 <button className="mb-8 w-10 h-10" onClick={toggleSidebar}>
@@ -30,7 +30,7 @@ function Sidebar({darkMode}) {
                     <Link to='/' className={`mb-1 w-10 h-10 p-2 ${activeLink === '/' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => {handleLinkClick('/')}}>
                         <img className='w-6' src={darkMode ? '/dashboard-white.png' : '/dashboard.png'} alt="dashboard-icon" />
                     </Link>
-                    <Link to='/documents' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/documents' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/documents')}>
+                    <Link to='/' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/documents' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/')}>
                         <img className='w-6' src={darkMode ? '/documents-white.png' : '/documents.png'} alt="documents-icon" />
                     </Link>
                     <Link to='/users' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/users' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/users')}>
