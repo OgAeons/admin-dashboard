@@ -32,7 +32,7 @@ function Navbar({ darkMode, setDarkMode }) {
     }, [])
 
     return (
-        <nav className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 p-4 rounded-t-3xl shadow-md">
+        <nav className="bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-200 p-4 rounded-t-3xl shadow-md">
             <div className="no-select mx-10 flex items-center">
 
                 <div className="text-blue-600 font-semibold text-lg w-1/6">Admin Dashboard</div>
