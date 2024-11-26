@@ -16,8 +16,10 @@ function Sidebar({darkMode}) {
     }
 
     React.useEffect(() => {
-        setActiveLink(location.pathname)
-    }, [location])
+        if (location.pathname !== activeLink) {
+            setActiveLink(location.pathname)
+        }
+    }, [location.pathname])
 
   return (
     <div className={`no-select ${darkMode ? 'dark' : ''} ${sidebarCollapsed ? 'w-10 ' : 'w-64'} transition-all duration-300 bg-white dark:bg-gray-700 text-gray-800 dark:text-white flex flex-col h-[85vh] p-2 overflow-hidden rounded-bl-3xl shadow-md`}>
