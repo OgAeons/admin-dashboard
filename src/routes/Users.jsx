@@ -23,11 +23,16 @@ function Users({ setUsersLength }) {
 
     useEffect(() => {
         const savedUsers = JSON.parse(localStorage.getItem('users'))
+        
         if (savedUsers) {
             setUsers(savedUsers)
+            setUsersLength(savedUsers.length)
+        } else {
+            setUsers([])
+            setUsersLength(0)
         }
-        setUsersLength(users.length)
-    }, [])
+    }, []);  // Run only once when the component mounts (empty dependency array)
+    
 
     useEffect(() => {
         if (users.length > 0) {
