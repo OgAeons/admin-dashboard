@@ -14,31 +14,9 @@ function Roles({ setRolesLength, setPermissionsLength }) {
 
     useEffect(() => {
         const storedRoles = localStorage.getItem('roles')
-        const defaultRoles = storedRoles ? JSON.parse(storedRoles) : [
-            {
-                id: 1,
-                name: 'Admin',
-                permissions: {
-                    'Create User': true,
-                    'Edit User': true,
-                    'Delete User': true,
-                    'View Dashboard': true,
-                },
-            },
-        ]
-        setRoles(defaultRoles)
-        localStorage.setItem('roles', JSON.stringify(defaultRoles))
-
-        setRolesLength(defaultRoles.length)
-        setPermissionsLength(Object.keys(defaultRoles[0]?.permissions || {}).length)
-    }, [])
-
-    useEffect(() => {
-        const storedRoles = localStorage.getItem('roles')
-        if (storedRoles) {
-            setRoles(JSON.parse(storedRoles))
-        } else {
-            const defaultRoles = [
+        const defaultRoles = storedRoles
+            ? JSON.parse(storedRoles)
+            : [
                 {
                     id: 1,
                     name: 'Admin',
@@ -58,11 +36,55 @@ function Roles({ setRolesLength, setPermissionsLength }) {
                         'View Dashboard': true,
                     },
                 },
+                {
+                    id: 3,
+                    name: 'Moderator',
+                    permissions: {
+                        'Create User': true,
+                        'Edit User': false,
+                        'Delete User': false,
+                        'View Dashboard': true,
+                    },
+                },
+                {
+                    id: 4,
+                    name: 'Viewer',
+                    permissions: {
+                        'Create User': false,
+                        'Edit User': false,
+                        'Delete User': false,
+                        'View Dashboard': false,
+                    },
+                },
+                {
+                    id: 5,
+                    name: 'Member',
+                    permissions: {
+                        'Create User': false,
+                        'Edit User': false,
+                        'Delete User': false,
+                        'View Dashboard': false,
+                    },
+                },
+                {
+                    id: 6,
+                    name: 'Guest',
+                    permissions: {
+                        'Create User': false,
+                        'Edit User': false,
+                        'Delete User': false,
+                        'View Dashboard': false,
+                    },
+                }
             ]
-            setRoles(defaultRoles)
-            localStorage.setItem('roles', JSON.stringify(defaultRoles))
-        }
+        setRoles(defaultRoles)
+        localStorage.setItem('roles', JSON.stringify(defaultRoles))
+    
+        setRolesLength(defaultRoles.length)
+        setPermissionsLength(Object.keys(defaultRoles[0]?.permissions || {}).length)
     }, [])
+    
+    
 
     function addRole() {
         if (newRole.trim()) {
