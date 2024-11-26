@@ -10,7 +10,7 @@ function Breadcrumb() {
       <ul className="flex items-center space-x-2 m-4">
         <li>
           <Link to="/" className="hover:underline">
-            Project Overview
+            Dashboard
           </Link>
         </li>
         {pathnames.map((value, index) => {
