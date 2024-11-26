@@ -35,7 +35,7 @@ function Navbar({ darkMode, setDarkMode }) {
         <nav className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-200 p-4 rounded-t-3xl shadow-md">
             <div className="no-select mx-10 flex items-center">
 
-                <div className="font-semibold text-lg w-1/6">Admin Dashboard</div>
+                <div className="text-blue-600 font-semibold text-lg w-1/6">Admin Dashboard</div>
 
                 <div className='text-lg w-2/6 flex justify-around'>
                     {Object.keys(dropdown).map((key) => (
