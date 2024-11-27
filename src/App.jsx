@@ -33,7 +33,7 @@ function App() {
     }, [darkMode])
 
     return (
-        <Router>
+        <Router basename='/admin-dashboard'>
             <div className={`${darkMode ? 'dark' : ''} bg-blue-100 dark:bg-gray-800 min-h-screen`}>
                 <Routes>
                     <Route path="/" element={ 
