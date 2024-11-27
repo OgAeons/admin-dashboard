@@ -25,6 +25,7 @@ A modern and secure Admin Dashboard with a Role-Based Access Control (RBAC) UI, 
 - Role-based access control for system security
 - Secure form submissions using validation libraries
 - API error handling and user feedback for secure communication
+- Logs the activity of roles or permissions changes
 
 ### Dashboard
 - Overview of system statistics
@@ -92,6 +93,7 @@ A modern and secure Admin Dashboard with a Role-Based Access Control (RBAC) UI, 
 ### Security
 - RBAC for role-based permissions and access control
 - error handling and feedback
+- Actvity Logs maintain logs of all the activity
   
 ### User Experience
 - Smooth transitions between UI components
