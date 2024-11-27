@@ -1,32 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 function Alert({ message, type }) {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(true)
 
     const getAlertClass = () => {
         switch (type) {
             case 'success':
-                return 'bg-green-500';
+                return 'bg-green-500'
             case 'error':
-                return 'bg-red-500';
+                return 'bg-red-500'
             case 'info':
-                return 'bg-blue-500';
+                return 'bg-blue-500'
             default:
-                return 'bg-gray-500';
+                return 'bg-gray-500'
         }
-    };
+    }
 
-    // Hide the alert after 3 seconds
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
-        }, 3000); // 3000ms = 3 seconds
-
-        return () => clearTimeout(timer); // Cleanup timer on component unmount
-    }, []);
+        }, 3000)
+        return () => clearTimeout(timer)
+    }, [])
 
     if (!visible) {
-        return null; // Return null to hide the component
+        return null
     }
 
     return (
@@ -37,7 +35,7 @@ function Alert({ message, type }) {
             <span className="mr-2">✔️</span>
             {message}
         </div>
-    );
+    )
 }
 
-export default Alert;
+export default Alert
