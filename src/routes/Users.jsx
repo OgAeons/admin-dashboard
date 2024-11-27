@@ -137,12 +137,12 @@ function Users({ setUsersLength }) {
                                 })
                             }}
                         >
-                            <img src="/adduser-white.png" alt="Search Icon" className="w-4 h-4 mr-2" />
+                            <img src="./adduser-white.png" alt="Search Icon" className="w-4 h-4 mr-2" />
                             Add User
                         </button>
                         <Link to={'/roles'}>
                             <button className="bg-gray-800 dark:bg-blue-700 text-gray-200 px-4 py-2 flex items-center rounded-lg shadow-md">
-                                <img src="/key-white.png" alt="RoleIcon" className="w-4 h-4 mr-2" />
+                                <img src="./key-white.png" alt="Role Icon" className="w-4 h-4 mr-2" />
                                 Edit Roles
                             </button>
                         </Link>

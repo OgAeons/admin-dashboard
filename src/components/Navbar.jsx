@@ -41,7 +41,7 @@ function Navbar({ darkMode, setDarkMode }) {
                     {Object.keys(dropdown).map((key) => (
                         <div key={key} className="flex items-center cursor-pointer group"> 
                             <span>{key}</span>
-                            <img src={darkMode? '/down-arrow-white.png' : '/down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
+                            <img src={darkMode? './down-arrow-white.png' : './down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
                             <div className='bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 w-48 hidden group-hover:block absolute top-20 rounded-lg shadow-lg border border-gray-300 z-5'>
                                 <ul className="py-2">
                                     {dropdown[key].map((option) => (
@@ -58,16 +58,16 @@ function Navbar({ darkMode, setDarkMode }) {
                 <div className='w-1/6'></div>
 
                 <div className="bg-gray-100 dark:bg-gray-800 p-2 w-1/6 flex items-center rounded-3xl border border-transparent hover:border hover:border-gray-400">
-                    <img src="/search.png" alt="Search Icon" className="w-4 h-4 mr-2" />
+                    <img src="./search.png" alt="Search Icon" className="w-4 h-4 mr-2" />
                     <input type="text" placeholder="Search" className="bg-gray-100 dark:bg-gray-800 flex-1 h-4 outline-none" />
                 </div>
 
                 <div className='w-1/6 flex items-center justify-between'>
-                    <img src={darkMode ? "/bell-white.png" : "/bell.png"} alt="Notifications Icon" className="w-6 h-6 cursor-pointer ml-auto" />
+                    <img src={darkMode ? "./bell-white.png" : "./bell.png"} alt="Notifications Icon" className="w-6 h-6 cursor-pointer ml-auto" />
                     <div className='flex items-center cursor-pointer ml-auto' onClick={toggleUserDropdown}>
-                        <img src="/user.png" alt="User Icon" className="w-8 h-8 mr-2" />
+                        <img src="./user.png" alt="User Icon" className="w-8 h-8 mr-2" />
                         <span>John Doe</span>
-                        <img src={darkMode? '/down-arrow-white.png' : '/down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
+                        <img src={darkMode? './down-arrow-white.png' : './down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
                     </div>
 
                     {isUserDropdownOpen && (
