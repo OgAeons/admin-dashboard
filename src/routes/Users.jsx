@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Breadcrumb from '../components/Breadcrum'
 import Alert from '../components/Alert'
 import { Link } from 'react-router-dom'
+import { FaUserPlus } from 'react-icons/fa'
+import { RiShieldKeyholeFill } from 'react-icons/ri'
 
 function Users({ setUsersLength }) {
     const [users, setUsers] = useState([])
@@ -137,12 +139,12 @@ function Users({ setUsersLength }) {
                                 })
                             }}
                         >
-                            <img src="./adduser-white.png" alt="Search Icon" className="w-4 h-4 mr-2" />
+                            <FaUserPlus size={20} color='white' className='mr-2' />
                             Add User
                         </button>
                         <Link to={'/roles'}>
                             <button className="bg-gray-800 dark:bg-blue-700 text-gray-200 px-4 py-2 flex items-center rounded-lg shadow-md">
-                                <img src="./key-white.png" alt="Role Icon" className="w-4 h-4 mr-2" />
+                                <RiShieldKeyholeFill size={20} color='white' className='mr-2' />
                                 Edit Roles
                             </button>
                         </Link>

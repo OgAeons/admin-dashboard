@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { FaUserCircle, FaChevronDown } from 'react-icons/fa'
+import { AiOutlineBell } from 'react-icons/ai'
 
 function Navbar({ darkMode, setDarkMode }) {
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false)
     const dropdownRef = useRef(null)
+    const iconColor = darkMode ? '#fff' : '#000'
 
     const dropdown = {
         Projects: ['Create New Project', 'View All Projects', 'Archived Projects'],
@@ -40,8 +43,8 @@ function Navbar({ darkMode, setDarkMode }) {
                 <div className='text-lg w-2/6 flex justify-around'>
                     {Object.keys(dropdown).map((key) => (
                         <div key={key} className="flex items-center cursor-pointer group"> 
-                            <span>{key}</span>
-                            <img src={darkMode? './down-arrow-white.png' : './down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
+                            <span className='mr-2'>{key}</span>
+                            <FaChevronDown size={12} color={iconColor} />
                             <div className='bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 w-48 hidden group-hover:block absolute top-20 rounded-lg shadow-lg border border-gray-300 z-5'>
                                 <ul className="py-2">
                                     {dropdown[key].map((option) => (
@@ -63,10 +66,10 @@ function Navbar({ darkMode, setDarkMode }) {
                 </div>
 
                 <div className='w-1/6 flex items-center justify-between'>
-                    <img src={darkMode ? "./bell-white.png" : "./bell.png"} alt="Notifications Icon" className="w-6 h-6 cursor-pointer ml-auto" />
+                    <AiOutlineBell size={24} color={iconColor} className='ml-6'/>
                     <div className='flex items-center cursor-pointer ml-auto' onClick={toggleUserDropdown}>
-                        <img src="./user.png" alt="User Icon" className="w-8 h-8 mr-2" />
-                        <span>John Doe</span>
+                        <FaUserCircle size={30} color={iconColor} />
+                        <span className='ml-2'>John Doe</span>
                         <img src={darkMode? './down-arrow-white.png' : './down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
                     </div>
 
