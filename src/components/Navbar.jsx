@@ -70,7 +70,7 @@ function Navbar({ darkMode, setDarkMode }) {
                     <div className='flex items-center cursor-pointer ml-auto' onClick={toggleUserDropdown}>
                         <FaUserCircle size={30} color={iconColor} />
                         <span className='ml-2'>John Doe</span>
-                        <img src={darkMode? './down-arrow-white.png' : './down-arrow.png'} alt="Arrow" className="w-4 h-4 ml-1" />
+                        <FaChevronDown size={12} color={iconColor} />
                     </div>
 
                     {isUserDropdownOpen && (
