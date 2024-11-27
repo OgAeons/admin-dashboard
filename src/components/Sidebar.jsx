@@ -29,20 +29,20 @@ function Sidebar({darkMode}) {
                     <img className='w-6' src={darkMode ? '/hamburger-white.png' : '/hamburger.png'} alt="hamburger-icon" />
                 </button>
                 <div className='flex flex-col items-center space-y-4'>
-                    <Link to='/' className={`mb-1 w-10 h-10 p-2 ${activeLink === '/' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => {handleLinkClick('/')}}>
-                        <img className='w-6' src={darkMode ? '/dashboard-white.png' : '/dashboard.png'} alt="dashboard-icon" />
+                    <Link to='/' className={`mb-1 w-10 h-10 p-2 ${activeLink === '/' ? 'bg-blue-600' : 'hover:bg-blue-700 hover:text-gray-200'}`} onClick={() => {handleLinkClick('/')}}>
+                        <img className='w-6' src={darkMode || activeLink === '/' ? '/dashboard-white.png' : '/dashboard.png'} alt="dashboard-icon" />
                     </Link>
-                    <Link to='/' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/documents' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/')}>
-                        <img className='w-6' src={darkMode ? '/documents-white.png' : '/documents.png'} alt="documents-icon" />
+                    <Link to='/' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/documents' ? 'bg-blue-600' : 'hover:bg-blue-700 hover:text-gray-200'}`} onClick={() => handleLinkClick('/')}>
+                        <img className='w-6' src={darkMode || activeLink === '/documents' ? '/documents-white.png' : '/documents.png'} alt="documents-icon" />
                     </Link>
-                    <Link to='/users' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/users' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/users')}>
-                        <img className='w-6' src={darkMode ? '/users-white.png' : '/users.png'} alt="users-icon" />
+                    <Link to='/users' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/users' ? 'bg-blue-600' : 'hover:bg-blue-700 hover:text-gray-200'}`} onClick={() => handleLinkClick('/users')}>
+                        <img className='w-6' src={darkMode || activeLink === '/users' ? '/users-white.png' : '/users.png'} alt="users-icon" />
                     </Link>
-                    <Link to='/roles' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/roles' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/roles')}>
-                        <img className='w-6' src={darkMode ? '/roles-white.png' : '/roles.png'} alt="roles-icon" />
+                    <Link to='/roles' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/roles' ? 'bg-blue-600' : 'hover:bg-blue-700 hover:text-gray-200'}`} onClick={() => handleLinkClick('/roles')}>
+                        <img className='w-6' src={darkMode || activeLink === '/roles' ? '/key-white.png' : '/key.png'} alt="roles-icon" />
                     </Link>
-                    <Link to='/settigs' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/settings' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/settings')}>
-                        <img className='w-6' src={darkMode ? '/settings-white.png' : '/settings.png'} alt="hamburger-icon" />
+                    <Link to='/' className={`mb-4 w-10 h-10 p-2 ${activeLink === '/settings' ? 'bg-blue-600' : 'hover:bg-blue-700 hover:text-gray-200'}`} onClick={() => handleLinkClick('/')}>
+                        <img className='w-6' src={darkMode || activeLink === '/settings' ? '/settings-white.png' : '/settings.png'} alt="hamburger-icon" />
                     </Link>
                 </div>
             </div>
@@ -61,24 +61,24 @@ function Sidebar({darkMode}) {
                 </div>
 
                 <div className='flex flex-col space-y-4 w-full mr-2 transition-all duration-300'>
-                    <Link to='/' className={`text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center ${activeLink === '/' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/')}>
-                        <img className='w-6 mr-2' src={darkMode ? '/dashboard-white.png' : '/dashboard.png'} alt="dashboard-icon" />
+                    <Link to='/' className={`text-lg hover:bg-blue-700 p-2 rounded-md w-full flex items-center ${activeLink === '/' ? 'bg-blue-600 text-gray-200' : 'hover:text-gray-200'}`} onClick={() => handleLinkClick('/')}>
+                        <img className='w-6 mr-2' src={darkMode || activeLink === '/' ? '/dashboard-white.png' : '/dashboard.png'} alt="dashboard-icon" />
                         <span className='text-base sidebar-text'>Dashboard</span>
                     </Link>
-                    <Link to='/' className={`text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center ${activeLink === '/documents' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/')}>
-                        <img className='w-6 mr-2' src={darkMode ? '/documents-white.png' : '/documents.png'} alt="home-icon" />
+                    <Link to='/' className={`text-lg hover:bg-blue-700 p-2 rounded-md w-full flex items-center ${activeLink === '/documents' ? 'bg-blue-600 text-gray-200' : 'hover:text-gray-200'}`} onClick={() => handleLinkClick('/')}>
+                        <img className='w-6 mr-2' src={darkMode || activeLink === '/documents' ? '/documents-white.png' : '/documents.png'} alt="home-icon" />
                         <span className='text-base sidebar-text'>Documents</span>
                     </Link>
-                    <Link to='/users' className={`text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center ${activeLink === '/users' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/users')}>
-                        <img className='w-6 mr-2' src={darkMode ? '/users-white.png' : '/users.png'} alt="home-icon" />
+                    <Link to='/users' className={`text-lg hover:bg-blue-700 p-2 rounded-md w-full flex items-center ${activeLink === '/users' ? 'bg-blue-600 text-gray-200' : 'hover:text-gray-200'}`} onClick={() => handleLinkClick('/users')}>
+                        <img className='w-6 mr-2' src={darkMode || activeLink === '/users' ? '/users-white.png' : '/users.png'} alt="home-icon" />
                         <span className='text-base sidebar-text'>Users</span>
                     </Link>
-                    <Link to='/roles' className={`text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center ${activeLink === '/roles' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/roles')}>
-                        <img className='w-6 mr-2' src={darkMode ? '/roles-white.png' : '/roles.png'} alt="home-icon" />
+                    <Link to='/roles' className={`text-lg hover:bg-blue-700 p-2 rounded-md w-full flex items-center ${activeLink === '/roles' ? 'bg-blue-600 text-gray-200' : 'hover:text-gray-200'}`} onClick={() => handleLinkClick('/roles')}>
+                        <img className='w-6 mr-2' src={darkMode || activeLink === '/roles' ? '/key-white.png' : '/key.png'} alt="home-icon" />
                         <span className='text-base sidebar-text'>Roles</span>
                     </Link>
-                    <Link to='/' className={`text-lg hover:bg-gray-200 p-2 rounded-md w-full flex items-center ${activeLink === '/settings' ? 'bg-gray-300 dark:bg-gray-600' : ''}`} onClick={() => handleLinkClick('/')}>
-                        <img className='w-6 mr-2' src={darkMode ? '/settings-white.png' : '/settings.png'} alt="home-icon" />
+                    <Link to='/' className={`text-lg hover:bg-blue-700 p-2 rounded-md w-full flex items-center ${activeLink === '/settings' ? 'bg-blue-600 text-gray-200' : 'hover:text-gray-200'}`} onClick={() => handleLinkClick('/')}>
+                        <img className='w-6 mr-2' src={darkMode || activeLink === '/settings' ? '/settings-white.png' : '/settings.png'} alt="home-icon" />
                         <span className='text-base sidebar-text'>Settings</span>
                     </Link>
                 </div>
