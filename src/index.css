@@ -2,15 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* body {
-    background-color: rgb(210, 219, 255);
-} */
-
 .no-select {
     user-select: none;
 }
 
 .sidebar-text {
     white-space: nowrap;
+}
+
+button:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+table tr:hover {
+    background-color: #f4f4f4; 
+    cursor: pointer;
 }

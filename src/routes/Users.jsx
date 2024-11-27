@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Breadcrumb from '../components/Breadcrum'
 import Alert from '../components/Alert'
+import { Link } from 'react-router-dom'
 
 function Users({ setUsersLength }) {
     const [users, setUsers] = useState([])
@@ -31,7 +32,7 @@ function Users({ setUsersLength }) {
             setUsers([])
             setUsersLength(0)
         }
-    }, []);  // Run only once when the component mounts (empty dependency array)
+    }, [])
     
 
     useEffect(() => {
@@ -93,7 +94,7 @@ function Users({ setUsersLength }) {
 
 
     return (
-        <div className='no-select bg-gray-100 dark:bg-gray-900 w-full h-[85vh] rounded-br-3xl shadow-md z-1'>
+        <div className='no-select bg-gray-100 dark:bg-gray-900 w-full h-full rounded-br-3xl shadow-md z-1'>
             <Breadcrumb />
 
             <h1 className="text-gray-800 dark:text-gray-200 text-2xl font-bold mb-6 ml-8">Users ({filteredUsers.length})</h1>
@@ -101,7 +102,7 @@ function Users({ setUsersLength }) {
             {alert && ( <Alert key={`${alert.message}-${alert.type}`} message={alert.message} type={alert.type} /> )}
 
             <div className='bg-white dark:bg-gray-800 mx-6 px-8 py-8 h-[68vh] rounded-3xl shadow-md'>
-                <div className='flex justify-between items-center mb-4'>
+                <div className='flex justify-between items-center mb-8'>
                     <div className='flex space-x-4'>
                         <input
                             type="text"
@@ -123,21 +124,29 @@ function Users({ setUsersLength }) {
                             ))}
                         </select>
                     </div>
-                    <button
-                        className="bg-blue-600 dark:bg-blue-700 text-gray-200 px-4 py-2 flex items-center rounded-lg shadow-md"
-                        onClick={() => {
-                            setPopupType("add")
-                            setPopupData({
-                                name: "",
-                                email: "",
-                                roles: [roles[0].name],
-                                status: statuses[0],
-                            })
-                        }}
-                    >
-                        <img src="/adduser-white.png" alt="Search Icon" className="w-4 h-4 mr-2" />
-                        Add User
-                    </button>
+                    <div className='flex space-x-4'>
+                        <button
+                            className="bg-blue-600 dark:bg-blue-700 text-gray-200 px-4 py-2 flex items-center rounded-lg shadow-md"
+                            onClick={() => {
+                                setPopupType("add")
+                                setPopupData({
+                                    name: "",
+                                    email: "",
+                                    roles: [roles[0].name],
+                                    status: statuses[0],
+                                })
+                            }}
+                        >
+                            <img src="/adduser-white.png" alt="Search Icon" className="w-4 h-4 mr-2" />
+                            Add User
+                        </button>
+                        <Link to={'/roles'}>
+                            <button className="bg-gray-800 dark:bg-blue-700 text-gray-200 px-4 py-2 flex items-center rounded-lg shadow-md">
+                                <img src="/key-white.png" alt="RoleIcon" className="w-4 h-4 mr-2" />
+                                Edit Roles
+                            </button>
+                        </Link>
+                    </div>
                 </div>
 
                 <table className='bg-white dark:bg-gray-800 min-w-full'>
@@ -147,11 +156,11 @@ function Users({ setUsersLength }) {
                                 <input type="checkbox" checked={selectAll} onChange={handleSelectAllChange} className="form-checkbox h-4 w-4 text-white" />
                                 <span className='text-gray-800 dark:text-gray-200 font-medium text-sm'>{selectedItems.length} / {filteredUsers.length}</span>
                             </th>
-                            <th className="text-gray-800 dark:text-gray-200 py-4 text-left w-[15%]">Name</th>
-                            <th className="text-gray-800 dark:text-gray-200 py-4 text-left w-[30%]">Email</th>
-                            <th className="text-gray-800 dark:text-gray-200 py-4 text-left w-[15%]">Role</th>
-                            <th className="text-gray-800 dark:text-gray-200 py-4 text-left w-[10%]">Status</th>
-                            <th className="text-gray-800 dark:text-gray-200 py-4 text-left w-[20%]">Actions</th>
+                            <th className="text-lg text-gray-800 dark:text-gray-200 py-4 text-left w-[15%]">Name</th>
+                            <th className="text-lg text-gray-800 dark:text-gray-200 py-4 text-left w-[30%]">Email</th>
+                            <th className="text-lg text-gray-800 dark:text-gray-200 py-4 text-left w-[15%]">Role</th>
+                            <th className="text-lg text-gray-800 dark:text-gray-200 py-4 px-2 text-left w-[15%]">Status</th>
+                            <th className="text-lg text-gray-800 dark:text-gray-200 py-4 text-left w-[15%]">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -167,16 +176,26 @@ function Users({ setUsersLength }) {
                                     </td>
                                     <td className="text-gray-800 dark:text-gray-400 py-4 w-[15%]">{user.name}</td>
                                     <td className="text-gray-800 dark:text-gray-400 py-4 w-[30%]">{user.email}</td>
-                                    <td className="text-gray-800 dark:text-gray-400 py-4 w-[15%]">{user.roles}</td>
-                                    <td className="text-gray-800 dark:text-gray-400 py-4 w-[10%]">{user.status}</td>
-                                    <td className="text-gray-800 dark:text-gray-400 py-4 flex items-center w-[20%]">
+                                    <td className="text-gray-800 dark:text-gray-400 py-4 w-[15%]">
+                                    <div className='bg-sky-300 text-blue-600 px-4 w-fit rounded-3xl'>
+                                            {user.roles}
+                                        </div> 
+                                    </td>
+                                    <td className="text-green-800 dark:text-gray-400 py-4 w-[15%]">
+                                        <div className={`${user.status === 'Active' ? 'bg-green-300 text-green-800' : 'bg-gray-400 text-gray-800'} px-4 w-fit rounded-3xl`}>
+                                            {user.status}
+                                        </div> 
+                                    </td>
+                                    <td className="text-gray-800 dark:text-gray-400 py-4 flex items-center w-[15%]">
                                         <button className="text-blue-500 mr-4" onClick={() => {
-                                            setPopupType("edit")
-                                            setPopupData(user)
-                                        }}>
+                                                setPopupType("edit")
+                                                setPopupData(user)
+                                            }}
+                                            title='Edit User'
+                                        >
                                             Edit
                                         </button>
-                                        <button className="text-red-500" onClick={() => handleDeleteUser(user.id)}>
+                                        <button className="text-red-500" onClick={() => handleDeleteUser(user.id)} title='Delete User'>
                                             Delete
                                         </button>
                                     </td>
