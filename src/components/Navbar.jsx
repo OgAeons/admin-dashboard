@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { FaUserCircle, FaChevronDown } from 'react-icons/fa'
+import { FaUserCircle, FaChevronDown, FaSearch } from 'react-icons/fa'
 import { AiOutlineBell } from 'react-icons/ai'
 
 function Navbar({ darkMode, setDarkMode }) {
@@ -61,7 +61,7 @@ function Navbar({ darkMode, setDarkMode }) {
                 <div className='w-1/6'></div>
 
                 <div className="bg-gray-100 dark:bg-gray-800 p-2 w-1/6 flex items-center rounded-3xl border border-transparent hover:border hover:border-gray-400">
-                    <img src="./search.png" alt="Search Icon" className="w-4 h-4 mr-2" />
+                    <FaSearch size={16} color='#979595' className='mr-1'/>
                     <input type="text" placeholder="Search" className="bg-gray-100 dark:bg-gray-800 flex-1 h-4 outline-none" />
                 </div>
 
